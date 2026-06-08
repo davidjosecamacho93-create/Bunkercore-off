@@ -7,7 +7,6 @@
     "test": "node test_fetch.js"
   },
   "description": "CipherKey Enterprise V2: Infraestructura de Identidad Zero-Trust B2B. Eliminamos la vulnerabilidad cognitiva de las contraseñas mediante autenticación FIDO2/WebAuthn. Arquitectura soberana con cifrado AES-256-GCM y motor CypherORM optimizado para ARM64. Soberanía digital inmutable para la integridad absoluta de datos en la nube. # bunkercore # bunkercore",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/camachogonzalezdavidjose-stack/bunkercore.git"
@@ -18,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/camachogonzalezdavidjose-stack/bunkercore/issues"
   },
-  "homepage": "https://github.com/camachogonzalezdavidjose-stack/bunkercore#readme"
+  "homepage": "https://github.com/camachogonzalezdavidjose-stack/bunkercore#readme",
+  "dependencies": {
+    "postgres": "^3.4.9"
+  }
 }
