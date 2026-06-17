@@ -11,8 +11,7 @@ Soy un desarrollador apasionado por la **ciberseguridad**, la computación en la
 ### 📈 Mi Progreso
 Estoy en constante aprendizaje y validación de mis habilidades. Puedes ver mis logros técnicos aquí:
 * 🎓 **Google Cloud Skills:** [Mi perfil de certificaciones y laboratorios](https://www.skills.google/public_profiles/97915bc5-c58c-48fd-8b82-df9a170bdd63)
-* 🔬 **Investigación:** [Mi perfil ORCID](orcid logo
-0009-0006-7597-9825)
+* 🔬 **Investigación:** [Mi perfil ORCID](https://orcid.org/my-orcid?orcid=0009-0006-7597-9825)
 
 ---
 *Siempre estoy abierto a colaborar en proyectos desafiantes, especialmente aquellos enfocados en seguridad y nube. ¡Conectemos!*
