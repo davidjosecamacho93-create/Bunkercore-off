@@ -1,1 +1,4 @@
 mvn -v
+mkdir backend
+
+cd backend
