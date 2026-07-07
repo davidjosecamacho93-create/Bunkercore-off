@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Modelo de Usuario
+model User {
+  id        String     @id @default(cuid())
+  email     String     @unique
+  name      String?
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  
+  // Relación con credenciales de Passkey
+  credentials PasskeyCredential[]
+
+  @@map("users")
+}
+
+// Modelo de Credencial Passkey
+model PasskeyCredential {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Identificadores del WebAuthn
+  credentialId    String   @unique
+  publicKey       String   // Almacenado en base64
+  counter         Int      @default(0)
+  
+  // Información del dispositivo
+  deviceType      String?  // "singleDevice" o "multiDevice"
+  deviceBacked    Boolean  @default(false)
+  transports      String[] @default([]) // ["internal", "usb", "nfc", "ble"]
+  
+  // Información de registro
+  createdAt       DateTime @default(now())
+  lastUsedAt      DateTime?
+  name            String?  // Nombre amigable del dispositivo (ej: "iPhone", "MacBook")
+  
+  @@map("passkey_credentials")
+  @@index([userId])
+}
+
+// Modelo para sesiones de autenticación temporal
+model AuthenticationChallenge {
+  id        String   @id @default(cuid())
+  challenge String   @unique
+  userId    String?
+  
+  // Challenge datos
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  
+  @@map("auth_challenges")
+  @@index([userId])
+  @@index([expiresAt])
+}
